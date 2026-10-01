@@ -1,0 +1,79 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Find Your Next Opportunity | JobPortal Pro{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">Professional Career Platform</span>
+
+        <h1>Find the right opportunity for your next career move.</h1>
+
+        <p>
+            Search jobs, discover great companies, and take the next step
+            in your professional journey with JobPortal Pro.
+        </p>
+
+        <form class="job-search" method="get" action="#">
+            <div class="search-field">
+                <label for="job-keyword">What are you looking for?</label>
+                <input
+                    id="job-keyword"
+                    type="text"
+                    name="q"
+                    placeholder="Job title, skill, or keyword"
+                >
+            </div>
+
+            <div class="search-field">
+                <label for="job-location">Where?</label>
+                <input
+                    id="job-location"
+                    type="text"
+                    name="location"
+                    placeholder="City, country, or remote"
+                >
+            </div>
+
+            <button type="submit">Search Jobs</button>
+        </form>
+    </div>
+</section>
+
+<section class="home-section">
+    <div class="section-heading">
+        <span class="section-label">Explore</span>
+        <h2>Everything you need for your career journey</h2>
+        <p>
+            JobPortal Pro brings job discovery, company research,
+            applications, and career tools together in one place.
+        </p>
+    </div>
+
+    <div class="feature-grid">
+        <article class="feature-card">
+            <h3>Find Jobs</h3>
+            <p>
+                Discover opportunities that match your skills,
+                experience, and career goals.
+            </p>
+        </article>
+
+        <article class="feature-card">
+            <h3>Explore Companies</h3>
+            <p>
+                Learn about employers, their opportunities,
+                and the teams behind them.
+            </p>
+        </article>
+
+        <article class="feature-card">
+            <h3>Manage Applications</h3>
+            <p>
+                Keep your applications organized and follow
+                your progress throughout the hiring process.
+            </p>
+        </article>
+    </div>
+</section>
+{% endblock %}
