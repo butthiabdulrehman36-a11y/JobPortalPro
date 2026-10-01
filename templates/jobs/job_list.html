@@ -4,14 +4,72 @@
 
 {% block content %}
 <section class="jobs-page">
+
     <div class="jobs-page-header">
         <span class="section-label">Job Search</span>
-        <h1>Find your next opportunity</h1>
-        <p>
-            Explore active opportunities and discover roles that match
-            your skills, experience, and career goals.
-        </p>
+
+        {% if keyword or location %}
+            <h1>Search results</h1>
+
+            <p>
+                {% if keyword %}
+                    Results for "{{ keyword }}"
+                {% endif %}
+
+                {% if keyword and location %}
+                    in
+                {% endif %}
+
+                {% if location %}
+                    "{{ location }}"
+                {% endif %}
+            </p>
+        {% else %}
+            <h1>Find your next opportunity</h1>
+
+            <p>
+                Explore active opportunities and discover roles that match
+                your skills, experience, and career goals.
+            </p>
+        {% endif %}
     </div>
+
+    <form class="jobs-search-form" method="get" action="{% url 'jobs:job_list' %}">
+        <div class="search-field">
+            <label for="jobs-keyword">Keyword</label>
+            <input
+                id="jobs-keyword"
+                type="text"
+                name="q"
+                value="{{ keyword }}"
+                placeholder="Job title, skill, or company"
+            >
+        </div>
+
+        <div class="search-field">
+            <label for="jobs-location">Location</label>
+            <input
+                id="jobs-location"
+                type="text"
+                name="location"
+                value="{{ location }}"
+                placeholder="City, country, or remote"
+            >
+        </div>
+
+        <div class="jobs-search-actions">
+            <button type="submit">Search Jobs</button>
+
+            {% if keyword or location %}
+                <a
+                    href="{% url 'jobs:job_list' %}"
+                    class="clear-search-button"
+                >
+                    Clear Search
+                </a>
+            {% endif %}
+        </div>
+    </form>
 
     <div class="jobs-list">
         {% for job in jobs %}
@@ -59,13 +117,14 @@
             </article>
         {% empty %}
             <div class="empty-jobs">
-                <h2>No jobs available yet</h2>
+                <h2>No jobs found</h2>
                 <p>
-                    New opportunities will appear here as soon as they
-                    are published.
+                    We couldn't find any active jobs matching your search.
+                    Try a different keyword or location.
                 </p>
             </div>
         {% endfor %}
     </div>
+
 </section>
 {% endblock %}
