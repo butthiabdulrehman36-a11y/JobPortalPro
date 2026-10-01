@@ -1,0 +1,53 @@
+﻿:root {
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-accent: #0f766e;
+    --color-success: #16a34a;
+    --color-danger: #dc2626;
+    --color-text: #1f2937;
+    --color-muted: #6b7280;
+    --color-background: #f8fafc;
+    --color-surface: #ffffff;
+    --color-border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--color-text);
+    background: var(--color-background);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
