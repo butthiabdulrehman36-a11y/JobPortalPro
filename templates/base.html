@@ -12,9 +12,24 @@
 </head>
 <body>
 
-    <header>
-        {% block header %}
-        {% endblock %}
+    <header class="site-header">
+        <div class="header-container">
+            <a href="{% url 'core:home' %}" class="brand">
+                <span class="brand-mark">JP</span>
+                <span class="brand-name">JobPortal Pro</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a href="{% url 'core:home' %}">Jobs</a>
+                <a href="#">Companies</a>
+                <a href="#">Career Resources</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="login-link">Login</a>
+                <a href="#" class="post-job-button">Post a Job</a>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -22,8 +37,11 @@
         {% endblock %}
     </main>
 
-    <footer>
+    <footer class="site-footer">
         {% block footer %}
+        <div class="footer-container">
+            <p>&copy; {% now "Y" %} JobPortal Pro. All rights reserved.</p>
+        </div>
         {% endblock %}
     </footer>
 

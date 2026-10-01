@@ -214,3 +214,159 @@ img {
         padding: 52px 0;
     }
 }
+
+/* Header */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--color-border);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+}
+
+.header-container {
+    width: min(1200px, calc(100% - 48px));
+    min-height: 72px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.brand:hover {
+    color: var(--color-text);
+}
+
+.brand-mark {
+    display: inline-grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 10px;
+    color: #ffffff;
+    background: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+}
+
+.brand-name {
+    font-size: 1.05rem;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-left: auto;
+}
+
+.main-nav a,
+.login-link {
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.main-nav a:hover,
+.login-link:hover {
+    color: var(--color-primary);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.post-job-button {
+    padding: 10px 16px;
+    border: 1px solid var(--color-primary);
+    border-radius: 9px;
+    color: #ffffff;
+    background: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.post-job-button:hover {
+    color: #ffffff;
+    background: var(--color-primary-dark);
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 40px;
+    border-top: 1px solid var(--color-border);
+    background: #ffffff;
+}
+
+.footer-container {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 28px 0;
+}
+
+.footer-container p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+}
+
+/* Header responsive */
+@media (max-width: 900px) {
+    .header-container {
+        gap: 18px;
+    }
+
+    .main-nav {
+        gap: 14px;
+    }
+
+    .main-nav a:nth-child(3) {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .header-container {
+        width: min(100% - 32px, 1200px);
+        min-height: 64px;
+    }
+
+    .brand-name {
+        display: none;
+    }
+
+    .main-nav {
+        margin-left: auto;
+        gap: 12px;
+    }
+
+    .main-nav a {
+        font-size: 0.82rem;
+    }
+
+    .login-link {
+        display: none;
+    }
+
+    .post-job-button {
+        padding: 9px 12px;
+        font-size: 0.82rem;
+    }
+
+    .footer-container {
+        width: min(100% - 32px, 1200px);
+    }
+}
