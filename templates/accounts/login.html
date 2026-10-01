@@ -1,0 +1,64 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Login | JobPortal Pro{% endblock %}
+
+{% block content %}
+<section class="auth-page">
+    <div class="auth-card">
+        <div class="auth-header">
+            <span class="section-label">Welcome Back</span>
+            <h1>Sign in to your account</h1>
+            <p>
+                Access your applications, saved jobs, and career dashboard.
+            </p>
+        </div>
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+
+            {% if form.non_field_errors %}
+                <div class="form-error">
+                    {{ form.non_field_errors }}
+                </div>
+            {% endif %}
+
+            <div class="form-field">
+                <label for="{{ form.username.id_for_label }}">
+                    Username
+                </label>
+                {{ form.username }}
+
+                {% if form.username.errors %}
+                    <div class="field-error">
+                        {{ form.username.errors }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="form-field">
+                <label for="{{ form.password.id_for_label }}">
+                    Password
+                </label>
+                {{ form.password }}
+
+                {% if form.password.errors %}
+                    <div class="field-error">
+                        {{ form.password.errors }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="auth-submit">
+                Sign In
+            </button>
+        </form>
+
+        <p class="auth-footer">
+            Don't have an account?
+            <a href="{% url 'accounts:register' %}">
+                Create one
+            </a>
+        </p>
+    </div>
+</section>
+{% endblock %}
