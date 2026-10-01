@@ -1,0 +1,73 @@
+﻿{% extends "base.html" %}
+
+{% block title %}{{ job.title }} | JobPortal Pro{% endblock %}
+
+{% block content %}
+<section class="job-detail-page">
+    <div class="job-detail-container">
+
+        <div class="job-detail-main">
+            <span class="job-type">
+                {{ job.get_employment_type_display }}
+            </span>
+
+            <h1>{{ job.title }}</h1>
+
+            <p class="job-detail-company">
+                {{ job.company_name }}
+            </p>
+
+            <p class="job-detail-location">
+                {{ job.location }}
+            </p>
+
+            <div class="job-detail-description">
+                <h2>Job Description</h2>
+                <p>{{ job.description }}</p>
+            </div>
+        </div>
+
+        <aside class="job-detail-sidebar">
+            <div class="job-detail-card">
+                <h2>Job Overview</h2>
+
+                <div class="job-overview-item">
+                    <span>Employment Type</span>
+                    <strong>{{ job.get_employment_type_display }}</strong>
+                </div>
+
+                <div class="job-overview-item">
+                    <span>Location</span>
+                    <strong>{{ job.location }}</strong>
+                </div>
+
+                {% if job.salary_min or job.salary_max %}
+                    <div class="job-overview-item">
+                        <span>Salary</span>
+                        <strong>
+                            {% if job.salary_min %}
+                                {{ job.salary_min }}
+                            {% endif %}
+                            {% if job.salary_min and job.salary_max %}
+                                -
+                            {% endif %}
+                            {% if job.salary_max %}
+                                {{ job.salary_max }}
+                            {% endif %}
+                        </strong>
+                    </div>
+                {% endif %}
+
+                <a href="#" class="job-apply-button">
+                    Apply for this Job
+                </a>
+
+                <a href="{% url 'jobs:job_list' %}" class="job-back-link">
+                    Back to Jobs
+                </a>
+            </div>
+        </aside>
+
+    </div>
+</section>
+{% endblock %}

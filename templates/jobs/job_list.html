@@ -3,14 +3,69 @@
 {% block title %}Find Jobs | JobPortal Pro{% endblock %}
 
 {% block content %}
-<section class="home-section">
-    <div class="section-heading">
+<section class="jobs-page">
+    <div class="jobs-page-header">
         <span class="section-label">Job Search</span>
         <h1>Find your next opportunity</h1>
         <p>
-            Explore professional opportunities and discover roles
-            that match your career goals.
+            Explore active opportunities and discover roles that match
+            your skills, experience, and career goals.
         </p>
+    </div>
+
+    <div class="jobs-list">
+        {% for job in jobs %}
+            <article class="job-card">
+                <div class="job-card-content">
+                    <div>
+                        <span class="job-type">
+                            {{ job.get_employment_type_display }}
+                        </span>
+
+                        <h2>{{ job.title }}</h2>
+
+                        <p class="job-company">
+                            {{ job.company_name }}
+                        </p>
+
+                        <p class="job-location">
+                            {{ job.location }}
+                        </p>
+                    </div>
+
+                    <div class="job-card-meta">
+                        {% if job.salary_min or job.salary_max %}
+                            <p class="job-salary">
+                                {% if job.salary_min %}
+                                    {{ job.salary_min }}
+                                {% endif %}
+                                {% if job.salary_min and job.salary_max %}
+                                    -
+                                {% endif %}
+                                {% if job.salary_max %}
+                                    {{ job.salary_max }}
+                                {% endif %}
+                            </p>
+                        {% endif %}
+
+                        <a
+                            href="{% url 'jobs:job_detail' job.id %}"
+                            class="job-view-button"
+                        >
+                            View Job
+                        </a>
+                    </div>
+                </div>
+            </article>
+        {% empty %}
+            <div class="empty-jobs">
+                <h2>No jobs available yet</h2>
+                <p>
+                    New opportunities will appear here as soon as they
+                    are published.
+                </p>
+            </div>
+        {% endfor %}
     </div>
 </section>
 {% endblock %}

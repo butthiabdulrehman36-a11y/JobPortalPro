@@ -1,5 +1,25 @@
-﻿from django.shortcuts import render
+﻿from django.shortcuts import get_object_or_404, render
+
+from .models import Job
 
 
 def job_list(request):
-    return render(request, "jobs/job_list.html")
+    jobs = Job.objects.filter(is_active=True)
+    return render(
+        request,
+        "jobs/job_list.html",
+        {"jobs": jobs},
+    )
+
+
+def job_detail(request, job_id):
+    job = get_object_or_404(
+        Job,
+        id=job_id,
+        is_active=True,
+    )
+    return render(
+        request,
+        "jobs/job_detail.html",
+        {"job": job},
+    )
