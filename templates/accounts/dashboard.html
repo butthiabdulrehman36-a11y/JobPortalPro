@@ -1,0 +1,35 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Dashboard | JobPortal Pro{% endblock %}
+
+{% block content %}
+<section class="dashboard-page">
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <span class="section-label">Your Workspace</span>
+            <h1>Welcome to your dashboard</h1>
+            <p>
+                Manage your job search, applications, and career activity
+                from one professional workspace.
+            </p>
+        </div>
+
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <h2>Applications</h2>
+                <p>Track the jobs you have applied for.</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Saved Jobs</h2>
+                <p>Keep your favorite opportunities organized.</p>
+            </div>
+
+            <div class="dashboard-card">
+                <h2>Profile</h2>
+                <p>Build a stronger professional profile.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
